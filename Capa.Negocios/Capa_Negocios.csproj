@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\practica_proveedores\Capa_Datos.csproj" />
+  </ItemGroup>
+
 </Project>
