@@ -34,21 +34,21 @@
             lblTIPO = new Label();
             TxtRNC = new TextBox();
             TxtNOMBRE = new TextBox();
-            TxtTELEFONO = new TextBox();
             btnBUSCAR = new Button();
             lnlPRODUCTO = new Label();
             TxtTIPO = new TextBox();
             TxtPRODUCTO = new TextBox();
-            dataGridView1 = new DataGridView();
-            btnAGREGAR = new Button();
+            dgvProveedores = new DataGridView();
+            btnREGISTRAR = new Button();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            TxtTELEFONO = new MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvProveedores).BeginInit();
             SuspendLayout();
             // 
             // lblRNC
             // 
             lblRNC.AutoSize = true;
-            lblRNC.Location = new Point(202, 152);
+            lblRNC.Location = new Point(202, 130);
             lblRNC.Name = "lblRNC";
             lblRNC.Size = new Size(38, 20);
             lblRNC.TabIndex = 0;
@@ -58,7 +58,7 @@
             // lblNOMBRE
             // 
             lblNOMBRE.AutoSize = true;
-            lblNOMBRE.Location = new Point(176, 210);
+            lblNOMBRE.Location = new Point(176, 195);
             lblNOMBRE.Name = "lblNOMBRE";
             lblNOMBRE.Size = new Size(64, 20);
             lblNOMBRE.TabIndex = 1;
@@ -67,7 +67,7 @@
             // lblTELEFONO
             // 
             lblTELEFONO.AutoSize = true;
-            lblTELEFONO.Location = new Point(173, 278);
+            lblTELEFONO.Location = new Point(173, 261);
             lblTELEFONO.Name = "lblTELEFONO";
             lblTELEFONO.Size = new Size(67, 20);
             lblTELEFONO.TabIndex = 2;
@@ -76,7 +76,7 @@
             // lblTIPO
             // 
             lblTIPO.AutoSize = true;
-            lblTIPO.Location = new Point(201, 346);
+            lblTIPO.Location = new Point(201, 328);
             lblTIPO.Name = "lblTIPO";
             lblTIPO.Size = new Size(39, 20);
             lblTIPO.TabIndex = 3;
@@ -84,28 +84,22 @@
             // 
             // TxtRNC
             // 
-            TxtRNC.Location = new Point(246, 145);
+            TxtRNC.Location = new Point(246, 123);
             TxtRNC.Name = "TxtRNC";
             TxtRNC.Size = new Size(253, 27);
             TxtRNC.TabIndex = 5;
             // 
             // TxtNOMBRE
             // 
-            TxtNOMBRE.Location = new Point(246, 203);
+            TxtNOMBRE.Location = new Point(246, 188);
             TxtNOMBRE.Name = "TxtNOMBRE";
             TxtNOMBRE.Size = new Size(253, 27);
             TxtNOMBRE.TabIndex = 6;
-            // 
-            // TxtTELEFONO
-            // 
-            TxtTELEFONO.Location = new Point(246, 271);
-            TxtTELEFONO.Name = "TxtTELEFONO";
-            TxtTELEFONO.Size = new Size(253, 27);
-            TxtTELEFONO.TabIndex = 7;
+            TxtNOMBRE.TextChanged += TxtNOMBRE_TextChanged;
             // 
             // btnBUSCAR
             // 
-            btnBUSCAR.Location = new Point(405, 492);
+            btnBUSCAR.Location = new Point(405, 459);
             btnBUSCAR.Name = "btnBUSCAR";
             btnBUSCAR.Size = new Size(94, 29);
             btnBUSCAR.TabIndex = 12;
@@ -116,7 +110,7 @@
             // lnlPRODUCTO
             // 
             lnlPRODUCTO.AutoSize = true;
-            lnlPRODUCTO.Location = new Point(171, 422);
+            lnlPRODUCTO.Location = new Point(171, 395);
             lnlPRODUCTO.Name = "lnlPRODUCTO";
             lnlPRODUCTO.Size = new Size(69, 20);
             lnlPRODUCTO.TabIndex = 13;
@@ -124,36 +118,39 @@
             // 
             // TxtTIPO
             // 
-            TxtTIPO.Location = new Point(246, 339);
+            TxtTIPO.Location = new Point(246, 321);
             TxtTIPO.Name = "TxtTIPO";
             TxtTIPO.Size = new Size(253, 27);
             TxtTIPO.TabIndex = 14;
             // 
             // TxtPRODUCTO
             // 
-            TxtPRODUCTO.Location = new Point(246, 415);
+            TxtPRODUCTO.Location = new Point(246, 388);
             TxtPRODUCTO.Name = "TxtPRODUCTO";
             TxtPRODUCTO.Size = new Size(253, 27);
             TxtPRODUCTO.TabIndex = 15;
             // 
-            // dataGridView1
+            // dgvProveedores
             // 
-            dataGridView1.BackgroundColor = SystemColors.ControlLightLight;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(604, 117);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(663, 325);
-            dataGridView1.TabIndex = 16;
+            dgvProveedores.AllowUserToAddRows = false;
+            dgvProveedores.AllowUserToResizeRows = false;
+            dgvProveedores.BackgroundColor = SystemColors.ControlLightLight;
+            dgvProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProveedores.Location = new Point(561, 119);
+            dgvProveedores.Name = "dgvProveedores";
+            dgvProveedores.RowHeadersWidth = 51;
+            dgvProveedores.Size = new Size(723, 296);
+            dgvProveedores.TabIndex = 16;
             // 
-            // btnAGREGAR
+            // btnREGISTRAR
             // 
-            btnAGREGAR.Location = new Point(246, 492);
-            btnAGREGAR.Name = "btnAGREGAR";
-            btnAGREGAR.Size = new Size(94, 29);
-            btnAGREGAR.TabIndex = 17;
-            btnAGREGAR.Text = "Agregar";
-            btnAGREGAR.UseVisualStyleBackColor = true;
+            btnREGISTRAR.Location = new Point(246, 459);
+            btnREGISTRAR.Name = "btnREGISTRAR";
+            btnREGISTRAR.Size = new Size(94, 29);
+            btnREGISTRAR.TabIndex = 17;
+            btnREGISTRAR.Text = "Registrar";
+            btnREGISTRAR.UseVisualStyleBackColor = true;
+            btnREGISTRAR.Click += btnREGISTRAR_Click;
             // 
             // label1
             // 
@@ -165,20 +162,29 @@
             label1.TabIndex = 18;
             label1.Text = "PROVEEDORES";
             // 
+            // TxtTELEFONO
+            // 
+            TxtTELEFONO.Location = new Point(246, 254);
+            TxtTELEFONO.Mask = "+1(999)000-0000";
+            TxtTELEFONO.Name = "TxtTELEFONO";
+            TxtTELEFONO.Size = new Size(253, 27);
+            TxtTELEFONO.TabIndex = 19;
+            TxtTELEFONO.MaskInputRejected += TxtTELEFONO_MaskInputRejected;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1386, 575);
+            ClientSize = new Size(1333, 575);
+            Controls.Add(TxtTELEFONO);
             Controls.Add(label1);
-            Controls.Add(btnAGREGAR);
-            Controls.Add(dataGridView1);
+            Controls.Add(btnREGISTRAR);
+            Controls.Add(dgvProveedores);
             Controls.Add(TxtPRODUCTO);
             Controls.Add(TxtTIPO);
             Controls.Add(lnlPRODUCTO);
             Controls.Add(btnBUSCAR);
-            Controls.Add(TxtTELEFONO);
             Controls.Add(TxtNOMBRE);
             Controls.Add(TxtRNC);
             Controls.Add(lblTIPO);
@@ -188,7 +194,7 @@
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProveedores).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,13 +207,13 @@
         private Label lblTIPO;
         private TextBox TxtRNC;
         private TextBox TxtNOMBRE;
-        private TextBox TxtTELEFONO;
         private Button btnBUSCAR;
         private Label lnlPRODUCTO;
         private TextBox TxtTIPO;
         private TextBox TxtPRODUCTO;
-        private DataGridView dataGridView1;
-        private Button btnAGREGAR;
+        private DataGridView dgvProveedores;
+        private Button btnREGISTRAR;
         private Label label1;
+        private MaskedTextBox TxtTELEFONO;
     }
 }

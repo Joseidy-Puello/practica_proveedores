@@ -37,6 +37,38 @@ namespace Capa_Negocios
 
             return proveedor;
         }
+
+        public void RegistrarProveedor(PROVEEDOR proveedor)
+        {
+            using (SqlConnection conn = new SqlConnection(connBD.conexion))
+            {
+                string query = "INSERT INTO PROVEEDOR (RNC, NOMBRE, TELEFONO, TIPO, PRODUCTO) VALUES (@RNC, @NOMBRE, @TELEFONO, @TIPO, @PRODUCTO)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                conn.Open();
+                cmd.Parameters.AddWithValue("@RNC", proveedor.RNC);
+                cmd.Parameters.AddWithValue("@NOMBRE", proveedor.NOMBRE);
+                cmd.Parameters.AddWithValue("@Telefono", proveedor.TELEFONO);
+                cmd.Parameters.AddWithValue("@Tipo", proveedor.TIPO);
+                cmd.Parameters.AddWithValue("@Producto", proveedor.PRODUCTO);
+                
+                cmd.ExecuteNonQuery();  
+                conn.Close();
+
+               /* try
+                {
+                    con.Open();
+                    int filas = cmd.ExecuteNonQuery();
+                    return filas > 0;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }*/
+            }
+        }
+
+      
     }
 
 
@@ -46,7 +78,7 @@ namespace Capa_Negocios
     public class PROVEEDOR
     {
 
-        
+
         public string RNC { get; set; } = string.Empty;
         public string NOMBRE { get; set; } = string.Empty;
         public string TELEFONO { get; set; } = string.Empty;
@@ -59,7 +91,12 @@ namespace Capa_Negocios
             return RNC.All(char.IsDigit) && RNC.Length == 5;
         }
 
-       
+      /* public bool RegistrarProveedor(PROVEEDOR proveedor)
+       {
+            CNProveedor datos = new CNProveedor();
+            return datos.RegistrarProveedor(proveedor);
+       }*/
+
     }
 
     public class ProveedorLocal : PROVEEDOR
