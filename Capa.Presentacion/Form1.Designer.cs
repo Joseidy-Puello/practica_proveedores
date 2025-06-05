@@ -32,7 +32,6 @@
             lblNOMBRE = new Label();
             lblTELEFONO = new Label();
             lblTIPO = new Label();
-            TxtRNC = new TextBox();
             TxtNOMBRE = new TextBox();
             btnBUSCAR = new Button();
             lnlPRODUCTO = new Label();
@@ -42,6 +41,8 @@
             btnREGISTRAR = new Button();
             label1 = new Label();
             TxtTELEFONO = new MaskedTextBox();
+            TxtRNC = new MaskedTextBox();
+            btnLIMPIAR = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProveedores).BeginInit();
             SuspendLayout();
             // 
@@ -81,13 +82,6 @@
             lblTIPO.Size = new Size(39, 20);
             lblTIPO.TabIndex = 3;
             lblTIPO.Text = "Tipo";
-            // 
-            // TxtRNC
-            // 
-            TxtRNC.Location = new Point(246, 123);
-            TxtRNC.Name = "TxtRNC";
-            TxtRNC.Size = new Size(253, 27);
-            TxtRNC.TabIndex = 5;
             // 
             // TxtNOMBRE
             // 
@@ -138,8 +132,9 @@
             dgvProveedores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProveedores.Location = new Point(561, 119);
             dgvProveedores.Name = "dgvProveedores";
+            dgvProveedores.ReadOnly = true;
             dgvProveedores.RowHeadersWidth = 51;
-            dgvProveedores.Size = new Size(723, 296);
+            dgvProveedores.Size = new Size(730, 296);
             dgvProveedores.TabIndex = 16;
             // 
             // btnREGISTRAR
@@ -165,11 +160,29 @@
             // TxtTELEFONO
             // 
             TxtTELEFONO.Location = new Point(246, 254);
-            TxtTELEFONO.Mask = "+1(999)000-0000";
+            TxtTELEFONO.Mask = "(999)-000-0000";
             TxtTELEFONO.Name = "TxtTELEFONO";
             TxtTELEFONO.Size = new Size(253, 27);
             TxtTELEFONO.TabIndex = 19;
             TxtTELEFONO.MaskInputRejected += TxtTELEFONO_MaskInputRejected;
+            // 
+            // TxtRNC
+            // 
+            TxtRNC.Location = new Point(246, 123);
+            TxtRNC.Mask = "999999999";
+            TxtRNC.Name = "TxtRNC";
+            TxtRNC.Size = new Size(253, 27);
+            TxtRNC.TabIndex = 20;
+            // 
+            // btnLIMPIAR
+            // 
+            btnLIMPIAR.Location = new Point(326, 515);
+            btnLIMPIAR.Name = "btnLIMPIAR";
+            btnLIMPIAR.Size = new Size(94, 29);
+            btnLIMPIAR.TabIndex = 21;
+            btnLIMPIAR.Text = "Limpiar";
+            btnLIMPIAR.UseVisualStyleBackColor = true;
+            btnLIMPIAR.Click += btnLIMPIAR_Click;
             // 
             // Form1
             // 
@@ -177,6 +190,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1333, 575);
+            Controls.Add(btnLIMPIAR);
+            Controls.Add(TxtRNC);
             Controls.Add(TxtTELEFONO);
             Controls.Add(label1);
             Controls.Add(btnREGISTRAR);
@@ -186,7 +201,6 @@
             Controls.Add(lnlPRODUCTO);
             Controls.Add(btnBUSCAR);
             Controls.Add(TxtNOMBRE);
-            Controls.Add(TxtRNC);
             Controls.Add(lblTIPO);
             Controls.Add(lblTELEFONO);
             Controls.Add(lblNOMBRE);
@@ -205,7 +219,6 @@
         private Label lblNOMBRE;
         private Label lblTELEFONO;
         private Label lblTIPO;
-        private TextBox TxtRNC;
         private TextBox TxtNOMBRE;
         private Button btnBUSCAR;
         private Label lnlPRODUCTO;
@@ -215,5 +228,7 @@
         private Button btnREGISTRAR;
         private Label label1;
         private MaskedTextBox TxtTELEFONO;
+        private MaskedTextBox TxtRNC;
+        private Button btnLIMPIAR;
     }
 }

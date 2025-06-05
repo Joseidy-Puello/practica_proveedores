@@ -55,16 +55,8 @@ namespace Capa_Negocios
                 cmd.ExecuteNonQuery();  
                 conn.Close();
 
-               /* try
-                {
-                    con.Open();
-                    int filas = cmd.ExecuteNonQuery();
-                    return filas > 0;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }*/
+               
+                
             }
         }
 
@@ -85,7 +77,7 @@ namespace Capa_Negocios
         public string TIPO { get; set; } = string.Empty;
         public string PRODUCTO { get; set; } = string.Empty;
 
-        public virtual bool ValidarRNC()
+       /* public virtual bool ValidarRNC()
         {
             // Validación simple 
             return RNC.All(char.IsDigit) && RNC.Length == 5;
@@ -101,12 +93,12 @@ namespace Capa_Negocios
 
     public class ProveedorLocal : PROVEEDOR
     {
-        public override bool  ValidarRNC()
+       /*public override bool  ValidarRNC()
         {
             // validar RNC
            if (string.IsNullOrWhiteSpace(RNC)) return false;
             return RNC.All(char.IsDigit) && RNC.Length == 5;
-        }
+        }*/
 
 
         
@@ -115,12 +107,12 @@ namespace Capa_Negocios
 
     public class ProveedorInternacional : PROVEEDOR
     {
-        public override bool ValidarRNC()
+       /* public override bool ValidarRNC()
         {
             if (string.IsNullOrWhiteSpace(RNC)) return false;
             return RNC.All(char.IsDigit) && RNC.Length == 5;
 
-        }
+        }*/
         
         
 

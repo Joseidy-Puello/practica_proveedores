@@ -43,10 +43,10 @@ namespace Capa.Presentacion
             CNProveedor negocio = new CNProveedor();
             var proveedor = negocio.ObtenerProveedorPorRNC(rnc);
 
-            //captura de error (solo 5 numeros)
-            if (TxtRNC.Text.Length != 5)
+            //captura de error (solo 9 numeros)
+            if (TxtRNC.Text.Length != 9)
             {
-                MessageBox.Show("El RNC debe tener 5 dígitos o menos.");
+                MessageBox.Show("El RNC debe tener 9 dígitos o menos.");
                 return;
             }
 
@@ -95,13 +95,35 @@ namespace Capa.Presentacion
 
         private void TxtTELEFONO_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-           
+
 
         }
 
         private void TxtNOMBRE_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLIMPIAR_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Clear();
+                }
+               
+                if (control is MaskedTextBox)
+                {
+                    ((MaskedTextBox)control).Clear();
+                }
+
+                if (control is ComboBox)
+                {
+                    ((ComboBox)control).SelectedIndex = -1;
+                }
+            }
         }
     }
 }
