@@ -43,6 +43,7 @@
             TxtTELEFONO = new MaskedTextBox();
             TxtRNC = new MaskedTextBox();
             btnLIMPIAR = new Button();
+            btnELIMINAR = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProveedores).BeginInit();
             SuspendLayout();
             // 
@@ -136,6 +137,7 @@
             dgvProveedores.RowHeadersWidth = 51;
             dgvProveedores.Size = new Size(730, 296);
             dgvProveedores.TabIndex = 16;
+            dgvProveedores.CellMouseClick += dgvProveedores_CellMouseClick;
             // 
             // btnREGISTRAR
             // 
@@ -176,7 +178,7 @@
             // 
             // btnLIMPIAR
             // 
-            btnLIMPIAR.Location = new Point(326, 515);
+            btnLIMPIAR.Location = new Point(405, 523);
             btnLIMPIAR.Name = "btnLIMPIAR";
             btnLIMPIAR.Size = new Size(94, 29);
             btnLIMPIAR.TabIndex = 21;
@@ -184,12 +186,23 @@
             btnLIMPIAR.UseVisualStyleBackColor = true;
             btnLIMPIAR.Click += btnLIMPIAR_Click;
             // 
+            // btnELIMINAR
+            // 
+            btnELIMINAR.Location = new Point(246, 523);
+            btnELIMINAR.Name = "btnELIMINAR";
+            btnELIMINAR.Size = new Size(94, 29);
+            btnELIMINAR.TabIndex = 23;
+            btnELIMINAR.Text = "Eliminar";
+            btnELIMINAR.UseVisualStyleBackColor = true;
+            btnELIMINAR.Click += btnELIMINAR_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1333, 575);
+            Controls.Add(btnELIMINAR);
             Controls.Add(btnLIMPIAR);
             Controls.Add(TxtRNC);
             Controls.Add(TxtTELEFONO);
@@ -230,5 +243,6 @@
         private MaskedTextBox TxtTELEFONO;
         private MaskedTextBox TxtRNC;
         private Button btnLIMPIAR;
+        private Button btnELIMINAR;
     }
 }

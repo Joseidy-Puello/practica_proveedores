@@ -29,7 +29,7 @@ namespace Capa.Presentacion
         {
             conn.Open();
             DataTable dt = new DataTable();
-            adapt = new SqlDataAdapter("SELECT * FROM Proveedor", conn);
+            adapt = new SqlDataAdapter("SELECT * FROM PROVEEDOR", conn);
             adapt.Fill(dt);
             dgvProveedores.DataSource = dt;
             conn.Close();
@@ -85,10 +85,7 @@ namespace Capa.Presentacion
             //PARA QUE ACTUALICE
             ObtenerRegistro();
 
-            /*if (exito)
-                MessageBox.Show("Proveedor registrado correctamente.");
-            else
-                MessageBox.Show("Error al registrar el proveedor.");*/
+
         }
 
 
@@ -108,12 +105,12 @@ namespace Capa.Presentacion
         {
             foreach (Control control in this.Controls)
             {
-                
+
                 if (control is TextBox)
                 {
                     ((TextBox)control).Clear();
                 }
-               
+
                 if (control is MaskedTextBox)
                 {
                     ((MaskedTextBox)control).Clear();
@@ -124,6 +121,32 @@ namespace Capa.Presentacion
                     ((ComboBox)control).SelectedIndex = -1;
                 }
             }
+        }
+
+        private void dgvProveedores_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            TxtRNC.Text = dgvProveedores.CurrentRow.Cells[0].Value.ToString();
+            TxtNOMBRE.Text = dgvProveedores.CurrentRow.Cells[1].Value.ToString();
+            TxtTELEFONO.Text = dgvProveedores.CurrentRow.Cells[2].Value.ToString();
+            TxtTIPO.Text = dgvProveedores.CurrentRow.Cells[3].Value.ToString();
+            TxtPRODUCTO.Text = dgvProveedores.CurrentRow.Cells[4].Value.ToString();
+        }
+
+        private void btnELIMINAR_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            string RNC = dgvProveedores.CurrentRow.Cells [0].Value.ToString();
+            string connBD = "DELETE FROM PROVEEDOR WHERE RNC = '" + RNC + "'";
+            SqlCommand cmd = new SqlCommand(connBD, conn);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("El Registro se elimino correctamente");
+            TxtRNC.Text = "";
+            TxtNOMBRE.Text = "";
+            TxtTELEFONO.Text = "";
+            TxtTIPO.Text = "";
+            TxtPRODUCTO.Text = "";
+            conn.Close();
+            ObtenerRegistro();
         }
     }
 }
