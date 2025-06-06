@@ -1,4 +1,5 @@
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using Capa_Datos;
 using Capa_Negocios;
 using Microsoft.Data.SqlClient;
@@ -79,14 +80,14 @@ namespace Capa.Presentacion
             proveedor.TIPO = TxtTIPO.Text;
             proveedor.PRODUCTO = TxtPRODUCTO.Text;
 
-            if (string.IsNullOrWhiteSpace(TxtRNC.Text) ||
+           /* if (string.IsNullOrWhiteSpace(TxtRNC.Text) ||
            string.IsNullOrWhiteSpace(TxtNOMBRE.Text) ||
            string.IsNullOrWhiteSpace(TxtTELEFONO.Text) ||
            string.IsNullOrWhiteSpace(TxtTIPO.Text) ||
            string.IsNullOrWhiteSpace(TxtPRODUCTO.Text))
             {
                 MessageBox.Show("Todos los campos son obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return;*/
 
                 // Llama a la capa de negocio
                 CNProveedor negocio = new CNProveedor();
@@ -95,9 +96,9 @@ namespace Capa.Presentacion
                ObtenerRegistro();
 
           
-            }
-
+            
         }
+        
 
 
 
