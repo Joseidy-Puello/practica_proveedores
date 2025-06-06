@@ -43,14 +43,14 @@ namespace Capa.Presentacion
             CNProveedor negocio = new CNProveedor();
             var proveedor = negocio.ObtenerProveedorPorRNC(rnc);
 
-            //captura de error (solo 9 numeros)
+            //captura de error (solo 9 numeros para el RNC)
             if (TxtRNC.Text.Length != 9)
             {
-                MessageBox.Show("El RNC debe tener 9 dígitos o menos.");
+                MessageBox.Show("El RNC debe tener 9 dígitos.");
                 return;
             }
 
-            //
+            
             if (proveedor != null)
             {
                 MessageBox.Show("Proveedor encontrado: " + proveedor.NOMBRE);
@@ -79,12 +79,23 @@ namespace Capa.Presentacion
             proveedor.TIPO = TxtTIPO.Text;
             proveedor.PRODUCTO = TxtPRODUCTO.Text;
 
-            // Llama a la capa de negocio
-            CNProveedor negocio = new CNProveedor();
-            negocio.RegistrarProveedor(proveedor);
-            //PARA QUE ACTUALICE
-            ObtenerRegistro();
+            if (string.IsNullOrWhiteSpace(TxtRNC.Text) ||
+           string.IsNullOrWhiteSpace(TxtNOMBRE.Text) ||
+           string.IsNullOrWhiteSpace(TxtTELEFONO.Text) ||
+           string.IsNullOrWhiteSpace(TxtTIPO.Text) ||
+           string.IsNullOrWhiteSpace(TxtPRODUCTO.Text))
+            {
+                MessageBox.Show("Todos los campos son obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
 
+                // Llama a la capa de negocio
+                CNProveedor negocio = new CNProveedor();
+                negocio.RegistrarProveedor(proveedor);
+               //PARA QUE ACTUALICE
+               ObtenerRegistro();
+
+          
+            }
 
         }
 
@@ -135,7 +146,7 @@ namespace Capa.Presentacion
         private void btnELIMINAR_Click(object sender, EventArgs e)
         {
             conn.Open();
-            string RNC = dgvProveedores.CurrentRow.Cells [0].Value.ToString();
+            string RNC = dgvProveedores.CurrentRow.Cells[0].Value.ToString();
             string connBD = "DELETE FROM PROVEEDOR WHERE RNC = '" + RNC + "'";
             SqlCommand cmd = new SqlCommand(connBD, conn);
             cmd.ExecuteNonQuery();
@@ -147,6 +158,11 @@ namespace Capa.Presentacion
             TxtPRODUCTO.Text = "";
             conn.Close();
             ObtenerRegistro();
+        }
+
+        private void TxtRNC_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

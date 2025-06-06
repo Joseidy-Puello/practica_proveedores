@@ -7,7 +7,7 @@ namespace Capa_Negocios
 
     public class CNProveedor
     {
-
+        //metodos
         public PROVEEDOR ObtenerProveedorPorRNC(string rnc)
         {
             PROVEEDOR proveedor = null;
@@ -67,25 +67,26 @@ namespace Capa_Negocios
 
 
 
-
+    //clase base PROVEEDOR
     public class PROVEEDOR
     {
 
-
+        //no nulos
         public string RNC { get; set; } = string.Empty;
         public string NOMBRE { get; set; } = string.Empty;
         public string TELEFONO { get; set; } = string.Empty;
-        public string TIPO { get; set; } = string.Empty;
+        public virtual string TIPO { get; set; } = string.Empty;
         public string PRODUCTO { get; set; } = string.Empty;
 
       
 
     }
 
+    //clases heredadas
     public class ProveedorLocal : PROVEEDOR
     {
        
-
+        public override string TIPO => "Local";
 
         
     }
@@ -93,8 +94,8 @@ namespace Capa_Negocios
 
     public class ProveedorInternacional : PROVEEDOR
     {
-       
 
+        public override string TIPO => "Internacional";
 
     }
     

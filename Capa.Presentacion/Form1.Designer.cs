@@ -32,7 +32,6 @@
             lblNOMBRE = new Label();
             lblTELEFONO = new Label();
             lblTIPO = new Label();
-            TxtNOMBRE = new TextBox();
             btnBUSCAR = new Button();
             lnlPRODUCTO = new Label();
             TxtTIPO = new TextBox();
@@ -44,6 +43,7 @@
             TxtRNC = new MaskedTextBox();
             btnLIMPIAR = new Button();
             btnELIMINAR = new Button();
+            TxtNOMBRE = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvProveedores).BeginInit();
             SuspendLayout();
             // 
@@ -83,14 +83,6 @@
             lblTIPO.Size = new Size(39, 20);
             lblTIPO.TabIndex = 3;
             lblTIPO.Text = "Tipo";
-            // 
-            // TxtNOMBRE
-            // 
-            TxtNOMBRE.Location = new Point(246, 188);
-            TxtNOMBRE.Name = "TxtNOMBRE";
-            TxtNOMBRE.Size = new Size(253, 27);
-            TxtNOMBRE.TabIndex = 6;
-            TxtNOMBRE.TextChanged += TxtNOMBRE_TextChanged;
             // 
             // btnBUSCAR
             // 
@@ -175,6 +167,7 @@
             TxtRNC.Name = "TxtRNC";
             TxtRNC.Size = new Size(253, 27);
             TxtRNC.TabIndex = 20;
+            TxtRNC.MaskInputRejected += TxtRNC_MaskInputRejected;
             // 
             // btnLIMPIAR
             // 
@@ -196,12 +189,20 @@
             btnELIMINAR.UseVisualStyleBackColor = true;
             btnELIMINAR.Click += btnELIMINAR_Click;
             // 
+            // TxtNOMBRE
+            // 
+            TxtNOMBRE.Location = new Point(246, 188);
+            TxtNOMBRE.Name = "TxtNOMBRE";
+            TxtNOMBRE.Size = new Size(253, 27);
+            TxtNOMBRE.TabIndex = 24;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1333, 575);
+            Controls.Add(TxtNOMBRE);
             Controls.Add(btnELIMINAR);
             Controls.Add(btnLIMPIAR);
             Controls.Add(TxtRNC);
@@ -213,7 +214,6 @@
             Controls.Add(TxtTIPO);
             Controls.Add(lnlPRODUCTO);
             Controls.Add(btnBUSCAR);
-            Controls.Add(TxtNOMBRE);
             Controls.Add(lblTIPO);
             Controls.Add(lblTELEFONO);
             Controls.Add(lblNOMBRE);
@@ -232,7 +232,6 @@
         private Label lblNOMBRE;
         private Label lblTELEFONO;
         private Label lblTIPO;
-        private TextBox TxtNOMBRE;
         private Button btnBUSCAR;
         private Label lnlPRODUCTO;
         private TextBox TxtTIPO;
@@ -244,5 +243,6 @@
         private MaskedTextBox TxtRNC;
         private Button btnLIMPIAR;
         private Button btnELIMINAR;
+        private TextBox TxtNOMBRE;
     }
 }
